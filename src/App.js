@@ -1,23 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
+import Navabar from './layout/Navabar';
+import Home from './pages/Home';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import AddPiloto from './pilotos/AddPiloto';
+import EditPiloto from './pilotos/EditPiloto';
+import ViewPiloto from './pilotos/ViewPiloto';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+      <Navabar />
+
+      <Routes>
+        <Route exact path="/" element={<Home/>}/>
+        <Route exact path="/addpiloto" element={<AddPiloto/>}/>
+        <Route exact path="/editpiloto/:id" element={<EditPiloto/>}/> 
+        <Route exact path="/viewpiloto/:id" element={<ViewPiloto/>}/>
+      </Routes>
+      </Router>
     </div>
   );
 }
