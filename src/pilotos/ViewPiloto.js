@@ -5,6 +5,7 @@ import { Link, useParams } from "react-router-dom";
 export default function ViewPiloto() {
 
     const [piloto, setPiloto]=useState({
+        foto:"",
         nome:"",
         equipe:"",
         vitorias:""
@@ -31,6 +32,9 @@ export default function ViewPiloto() {
                         <div className="card-header">
                             Detalhes do piloto com id : {piloto.id}
                             <ul className="list-group list-gropup-flush">
+                            <li className="list-group-item">
+                                    <img src={piloto.foto} style={{width: 250}}></img>
+                                </li>
                                 <li className="list-group-item">
                                     <b>Nome: </b>
                                     {piloto.nome}

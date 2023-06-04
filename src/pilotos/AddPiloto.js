@@ -7,12 +7,14 @@ export default function AddPiloto() {
     let navigate=useNavigate()
 
     const [piloto, setPiloto] = useState({
+        pais:"",
+        foto:"",
         nome:"",
         equipe:"",
         vitorias:""
     })
 
-    const{nome,equipe,vitorias}=piloto;
+    const{pais,foto,nome,equipe,vitorias}=piloto;
 
     const onInputChange = (e) => {
 
@@ -31,6 +33,32 @@ export default function AddPiloto() {
                 <h2 className="text-center m-4">Registrar Piloto</h2>
 
                 <form onSubmit={(e)=>onSubmit(e)}>
+                <div className="mb-3">
+                    <label htmlFor="Pais" className="form-label">
+                        Pais
+                    </label>
+                    <input type={"text"} 
+                    className="form-control" 
+                    placeholder="Digite a URL da foto do país do piloto"
+                    name="pais"
+                    value={pais}
+                    onChange={(e)=>onInputChange(e)}
+                    />
+                </div>
+
+                <div className="mb-3">
+                    <label htmlFor="Foto" className="form-label">
+                        Foto
+                    </label>
+                    <input type={"text"} 
+                    className="form-control" 
+                    placeholder="Digite a URL da foto do piloto"
+                    name="foto"
+                    value={foto}
+                    onChange={(e)=>onInputChange(e)}
+                    />
+                </div>
+
                 <div className="mb-3">
                     <label htmlFor="Nome" className="form-label">
                         Nome

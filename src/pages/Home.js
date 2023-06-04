@@ -27,7 +27,8 @@ export default function Home() {
         <table className="table border shadow">
             <thead>
                 <tr>
-                    <th scope="col">Id</th>
+                    <th scope="col">País</th>
+                    <th scope="col">Foto</th>
                     <th scope="col">Nome</th>
                     <th scope="col">Equipe</th>
                     <th scope="col">Vitórias</th>
@@ -39,7 +40,8 @@ export default function Home() {
                 {
                     pilotos.map((piloto,index) => (
                         <tr>
-                            <th scope="row" key={index}>{index+1}</th>
+                            <td><img src={piloto.pais} style={{width: 45, border:"solid", borderWidth:0.1}}></img></td>
+                            <td><img src={piloto.foto} style={{width: 45}}></img></td>
                             <td>{piloto.nome}</td>
                             <td>{piloto.equipe}</td>
                             <td>{piloto.vitorias}</td>
