@@ -5,6 +5,11 @@ import { Link, useParams } from 'react-router-dom';
 export default function Home() {
     const [pilotos, setPilotos] = useState([]);
 
+    //Adicionada a fintragem de pilotos
+    const [search, setSearch] = React.useState("");
+    const searchLowerCase = search.toLowerCase();
+    const pilotoFiltrado = pilotos.filter(piloto => piloto.nome.toLowerCase().includes(searchLowerCase) || piloto.equipe.toLowerCase().includes(searchLowerCase));
+
     const {id} = useParams();
 
     useEffect(() => {
@@ -22,7 +27,23 @@ export default function Home() {
     }
 
   return (
+
     <div className='container'>
+        <div>
+        <div className="mb-3">
+                    <br/>
+                    <label htmlFor="Search" className="form-label" >
+                        Filtrar por Nome ou Equipe
+                    </label>
+                    <input type={"search"} 
+                    className="form-control" 
+                    placeholder="Digite o nome do piloto ou da equipe"
+                    name="search"
+                    value={search}
+                    onChange={(e) => setSearch(e.target.value)}
+                    />
+                </div>
+        </div>
         <div className='py-4'>
         <table className="table border shadow">
             <thead>
@@ -38,7 +59,7 @@ export default function Home() {
             <tbody>
 
                 {
-                    pilotos.map((piloto,index) => (
+                    pilotoFiltrado.map((piloto,index) => (
                         <tr>
                             <td><img src={piloto.pais} style={{width: 45, border:"solid", borderWidth:0.1}}></img></td>
                             <td><img src={piloto.foto} style={{width: 45}}></img></td>

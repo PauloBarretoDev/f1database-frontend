@@ -25,11 +25,11 @@ export default function ViewPiloto() {
     return(
         <div className="container">
             <div className="row"> 
-                <div className="col-md-6 offset-md-3 border rounded p-4 mt-2 shadow">
-                    <h2 className="text-center m-4">Detalhes do Piloto</h2>
+                <div className="col-md-6 offset-md-3 border rounded p-4 mt-2 shadow bg-dark">
+                    <h2 className="text-center m-4" style={{color:"white"}}>Detalhes do Piloto</h2>
 
-                    <div className="card">
-                        <div className="card-header">
+                    <div className="card" style={{border: "solid"}}>
+                        <div className="card-header bg-transparent">
                             Detalhes do piloto com id : {piloto.id}
                             <ul className="list-group list-gropup-flush">
                             <li className="list-group-item">
@@ -50,7 +50,7 @@ export default function ViewPiloto() {
                             </ul>
                         </div>
                     </div>
-                    <Link className="btn btn-dark my-2" to={"/"}>Voltar para o Início</Link>
+                    <Link className="btn btn-outline-light my-2" to={"/"}>Voltar para o Início</Link>
                 </div>
             </div>
         </div>
